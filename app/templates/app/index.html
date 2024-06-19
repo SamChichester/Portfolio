@@ -1,0 +1,15 @@
+{% extends "app/base.html" %}
+{% load static %}
+
+{% block content %}
+    <div class="content">
+        <div class="home-container welcome-text-animation">
+            <div class="greeting">Hi, I'm <span id="my-name">Sam Chichester</span></div>
+            <div class="search-box welcome-text-animation">
+                <span class="text"></span>
+                <span class="cursor">|</span>
+            </div>
+        </div>
+        <script src="{% static 'js/cursor.js' %}"></script>
+    </div>
+{% endblock %}

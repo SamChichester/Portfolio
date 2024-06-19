@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>{{ title|escape }}</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cabin:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <div class="navbar">
+        <div class="profile">
+            <img src="{% static 'img/profile_picture.png' %}" alt="Profile Picture" class="profile-pic">
+            <h2 class="navbar-name"><span class="dark-background">Sam Chichester</span></h2>
+            <div class="social-icons">
+                <a href="https://github.com/SamChichester" target="_blank" class="navbar-icons" title="GitHub"><i class="fab fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/sam-chichester-48367123b/" target="_blank" class="navbar-icons" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+            </div>
+        </div>
+        <ul class="navbar-elements-container">
+            <li><a href="{% url 'index' %}" class="navbarelement"><i class="fas fa-home"></i>   Home</a></li>
+            <li><a href="{% url 'projects' %}" class="navbarelement"><i class="fas fa-list"></i>   Projects</a></li>
+            <li><a href="{% url 'about_me' %}" class="navbarelement"><i class="fas fa-user"></i>   About Me</a></li>
+        </ul>
+        <footer>
+            <p>&copy; 2024 Sam Chichester.</p>
+        </footer>
+    </div>
+    {% block content %}{% endblock %}
+</body>
+</html>

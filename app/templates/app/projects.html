@@ -1,0 +1,55 @@
+{% extends "app/base.html" %}
+{% load static %}
+
+{% block content %}
+<div class="main-projects-container">
+    <div class="project-container">
+        {% for project in projects %}
+        <div class="project">
+            <h2>{{ project.title }}</h2>
+            <p>{{ project.body }}</p>
+            <img src="{{ project.image_url }}" alt="Project Image" class="project-image">
+            <div class="github-and-tags">
+                <a href="{{ project.github_url }}" target="_blank"><i class="fab fa-github github-link" title="GitHub Project"></i></a>
+                {% for tag in project.sorted_tags %}
+                <div class="tag">{{ tag.name }}</div>
+                {% endfor %}
+            </div>
+            <p>{{ project.date|date:"b j, Y" }}</p>
+        </div>
+        {% endfor %}
+    </div>
+    <div class="info-card">
+        <div>
+            <h1 id="info-card-header">Projects</h1>
+            <div>Here are some of the projects I have created!</div>
+            <div style="margin-top: 20px;">Filter by:</div>
+            <div id="tags-container">
+                {% for tag in tags %}
+                <span class="filter-tag{% if tag.name in selected_tags %} selected{% endif %}" data-tag="{{ tag.name }}">{{ tag.name }}</span>
+                {% endfor %}
+            </div>
+        </div>
+        <div class="pagination">
+            <div class="pagination-text-container">
+                {% if projects.has_previous %}
+                <a href="?page={{ projects.previous_page_number }}" class="pagination-link" title="Previous Page"> &laquo; </a>
+                {% else %}
+                <span class="pagination-link disabled"> &laquo; </span>
+                {% endif %}
+                {% if projects.has_next %}
+                <a href="?page={{ projects.next_page_number }}" class="pagination-link" title="Next Page"> &raquo; </a>
+                {% else %}
+                <span class="pagination-link disabled"> &raquo; </span>
+                {% endif %}
+            </div>
+            <div>Prev Page &nbsp; Next Page</div>
+            <div>Page {{ projects.number }} of {{ projects.paginator.num_pages }}</div>
+        </div>
+    </div>
+</div>
+<script>
+    window.selectedTags = "{{ selected_tags|join:', ' }}".split(',').map(tag => tag.trim()).filter(tag => tag);
+</script>
+<script src="{% static 'js/filter.js' %}"></script>
+{% endblock %}
