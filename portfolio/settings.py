@@ -31,7 +31,6 @@ SECRET_KEY = os.environ.get('SECRET_KEY', get_random_secret_key())
 DEBUG = os.environ.get('DEBUG', 'False') == 'True'
 ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS', 'localhost').split(',')
 
-
 # Application definition
 
 INSTALLED_APPS = [
@@ -64,15 +63,15 @@ CSP_FONT_SRC = ("'self'", "https://fonts.googleapis.com", "https://fonts.gstatic
 SECURE_BROWSER_XSS_FILTER = True
 SECURE_CONTENT_TYPE_NOSNIFF = True
 
-SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+SECURE_PROXY_SSL_HEADER = None # ('HTTP_X_FORWARDED_PROTO', 'https')
 SECURE_SSL_REDIRECT = True
 
-SESSION_COOKIE_SECURE = True
-CSRF_COOKIE_SECURE = True
+SESSION_COOKIE_SECURE = False
+CSRF_COOKIE_SECURE = False
 
-SECURE_HSTS_SECONDS = 86400
-SECURE_HSTS_PRELOAD = True
-SECURE_HSTS_INCLUDE_SUBDOMAINS = True
+SECURE_HSTS_SECONDS = 0  # 86400
+SECURE_HSTS_PRELOAD = False
+SECURE_HSTS_INCLUDE_SUBDOMAINS = False
 
 ROOT_URLCONF = 'portfolio.urls'
 
