@@ -1,6 +1,7 @@
 document.addEventListener('DOMContentLoaded', function() {
     const tagsContainer = document.getElementById('tags-container');
-    const selectedTags = new Set(window.selectedTags);
+    const selectedTags = new Set(window.selectedTags || []);
+    console.log('Initial');
 
     tagsContainer.addEventListener('click', function(event) {
         if (event.target.classList.contains('filter-tag')) {

@@ -24,7 +24,7 @@
             <h1 id="info-card-header">Projects</h1>
             <div>Here are some of the projects I have created!</div>
             <div style="margin-top: 20px;">Filter by:</div>
-            <div id="tags-container">
+            <div id="tags-container" data-selected-tags="{{ selected_tags|join:', ' }}">
                 {% for tag in tags %}
                 <span class="filter-tag{% if tag.name in selected_tags %} selected{% endif %}" data-tag="{{ tag.name }}">{{ tag.name }}</span>
                 {% endfor %}
@@ -48,8 +48,6 @@
         </div>
     </div>
 </div>
-<script>
-    window.selectedTags = "{{ selected_tags|join:', ' }}".split(',').map(tag => tag.trim()).filter(tag => tag);
-</script>
+<script src="{% static 'js/selectedtags.js' %}"></script>
 <script src="{% static 'js/filter.js' %}"></script>
 {% endblock %}

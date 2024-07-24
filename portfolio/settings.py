@@ -60,11 +60,11 @@ CSP_STYLE_SRC = ("'self'", "https://fonts.googleapis.com", "https://cdnjs.cloudf
 CSP_IMG_SRC = ("'self'", "data:", "https://res.cloudinary.com/dvsvlcbec/")
 CSP_FONT_SRC = ("'self'", "https://fonts.googleapis.com", "https://fonts.gstatic.com", "https://cdnjs.cloudflare.com")
 
-SECURE_BROWSER_XSS_FILTER = True
-SECURE_CONTENT_TYPE_NOSNIFF = True
+SECURE_BROWSER_XSS_FILTER = False
+SECURE_CONTENT_TYPE_NOSNIFF = False
 
-SECURE_PROXY_SSL_HEADER = None # ('HTTP_X_FORWARDED_PROTO', 'https')
-SECURE_SSL_REDIRECT = True
+SECURE_PROXY_SSL_HEADER = None  # ('HTTP_X_FORWARDED_PROTO', 'https')
+SECURE_SSL_REDIRECT = False
 
 SESSION_COOKIE_SECURE = False
 CSRF_COOKIE_SECURE = False
