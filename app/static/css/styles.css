@@ -1,5 +1,3 @@
-
-/*   Whole elements   */
 * {
     margin: 0;
     padding: 0;
@@ -29,7 +27,6 @@ footer {
     margin-top: auto;
 }
 
-/*   base.html   */
 .navbar {
     width: 20%;
     background-color: #010b30;
@@ -94,7 +91,6 @@ footer {
     color: #ff9800;
 }
 
-/*   index.html   */
 .content {
     width: 80%;
     float: left;
