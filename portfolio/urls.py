@@ -25,5 +25,5 @@ urlpatterns = [
     path('projects/', views.projects, name='projects'),
 ]
 
-handler404 = 'app.views.handler404'
-handler500 = 'app.views.handler500'
+handler404 = 'app.views.page_not_found'
+handler500 = 'app.views.server_error'

@@ -58,9 +58,9 @@ def projects(request):
     return render(request, 'app/projects.html', context)
 
 
-def handler404(request, exception):
-    return render(request, 'app/404.html', status=400)
+def page_not_found(request, exception):
+    return render(request, 'app/404.html', status=404)
 
 
-def handler500(request):
+def server_error(request):
     return render(request, 'app/500.html', status=500)
