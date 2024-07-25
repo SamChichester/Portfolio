@@ -2,14 +2,14 @@
 {% load static %}
 
 {% block content %}
-    <div class="content">
-        <div class="home-container welcome-text-animation">
-            <div class="greeting">Hi, I'm <span id="my-name">Sam Chichester</span></div>
-            <div class="search-box welcome-text-animation">
-                <span class="text"></span>
-                <span class="cursor">|</span>
-            </div>
+<div class="container-fluid mt-3 d-flex justify-content-center align-items-center">
+    <div class="d-flex flex-column align-items-center">
+        <div class="greeting">Hi, I'm <span id="my-name">Sam Chichester</span></div>
+        <div class="search-box welcome-text-animation">
+            <span class="text"></span>
+            <span class="cursor">|</span>
         </div>
-        <script src="{% static 'js/cursor.js' %}"></script>
     </div>
+    <script src="{% static 'js/cursor.js' %}"></script>
+</div>
 {% endblock %}
