@@ -1,0 +1,144 @@
+.profile-picture {
+    width: 200px;
+}
+
+.offcanvas {
+    background-color: #010b30;
+}
+
+.close-button {
+    background-color: #fff;
+}
+
+.nav-icon{
+    color: #fff;
+    font-size: 20px;
+}
+
+.nav-icon:hover {
+    color: #ff9800;
+    transition: color 0.3s ease;
+}
+
+.greeting {
+    font-size: 4vw;
+    margin-bottom: 20px;
+    font-weight: bold;
+    text-align: center;
+}
+
+#my-name {
+    color: #4287f5;
+}
+
+.search-box {
+    font-size: 2vw;
+    padding: 0;
+    width: auto;
+    text-align: center;
+    color: black;
+    position: relative;
+    margin: 0;
+}
+
+.container-fluid {
+    height: 100vh;
+    padding: 0;
+    display: flex;
+}
+
+/* Sidebar */
+.sidebar {
+    flex: 0 0 25%;
+    max-width: 250px;
+    border-right: 1px solid #dee2e6;
+    background-color: #010b30;
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    transition: transform 0.3s ease;
+    height: 100vh;
+}
+.sidebar-collapsed {
+    display: none;
+}
+.sidebar-expanded {
+    display: block;
+}
+.sidebar .nav-item {
+    padding: 10px 15px;
+}
+
+.sidebar .profile-picture {
+    width: 150px;
+}
+.sidebar .navbar-footer {
+    margin-top: auto;
+    text-align: center;
+    padding: 10px;
+    border-top: 1px solid #dee2e6;
+}
+
+.btn-toggle {
+    display: none;
+}
+
+@media (max-width: 992px) {
+    .btn-toggle {
+        display: block;
+        position: fixed;
+        top: 15px;
+        left: 15px;
+        z-index: 1000;
+    }
+
+    .sidebar {
+        display: none;
+    }
+
+    .greeting {
+        font-size: 80px;
+    }
+
+    .search-box {
+        font-size: 30px;
+    }
+}
+
+.tag {
+    padding: 5px;
+    background-color: #040273;
+    color: #fff;
+    margin-right: 4px;
+    border-radius: 5px;
+}
+
+.filter-tag {
+    display: inline-block;
+    margin: 5px;
+    padding: 5px 10px;
+    background-color: #f0f0f0;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.filter-tag.selected {
+    background-color: #007bff;
+    color: #fff;
+}
+
+.github-icon {
+    font-size: 30px;
+}
+
+.github-and-tags {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 6px;
+    margin: 2px;
+}
+
+
+
