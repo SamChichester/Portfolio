@@ -2,52 +2,88 @@
 {% load static %}
 
 {% block content %}
-<div class="main-projects-container">
-    <div class="project-container">
-        {% for project in projects %}
-        <div class="project">
-            <h2>{{ project.title }}</h2>
-            <p>{{ project.body }}</p>
-            <img src="{{ project.image_url }}" alt="Project Image" class="project-image">
-            <div class="github-and-tags">
-                <a href="{{ project.github_url }}" target="_blank"><i class="fab fa-github github-link" title="GitHub Project"></i></a>
-                {% for tag in project.sorted_tags %}
-                <div class="tag">{{ tag.name }}</div>
-                {% endfor %}
-            </div>
-            <p>{{ project.date|date:"b j, Y" }}</p>
-        </div>
-        {% endfor %}
-    </div>
-    <div class="info-card">
-        <div>
-            <h1 id="info-card-header">Projects</h1>
-            <div>Here are some of the projects I have created!</div>
-            <div style="margin-top: 20px;">Filter by:</div>
-            <div id="tags-container" data-selected-tags="{{ selected_tags|join:', ' }}">
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-12 mb-4">
+            <h1 class="text-center">Projects</h1>
+            <p class="text-center">Here are some of the projects I have created</p>
+            <div class="text-center mt-3">Filter by:</div>
+            <div id="tags-container" class="text-center mt-2" data-selected-tags="{{ selected_tags|join:', ' }}">
                 {% for tag in tags %}
                 <span class="filter-tag{% if tag.name in selected_tags %} selected{% endif %}" data-tag="{{ tag.name }}">{{ tag.name }}</span>
                 {% endfor %}
             </div>
         </div>
-        <div class="pagination">
-            <div class="pagination-text-container">
-                {% if projects.has_previous %}
-                <a href="?page={{ projects.previous_page_number }}" class="pagination-link" title="Previous Page"> &laquo; </a>
-                {% else %}
-                <span class="pagination-link disabled"> &laquo; </span>
-                {% endif %}
-                {% if projects.has_next %}
-                <a href="?page={{ projects.next_page_number }}" class="pagination-link" title="Next Page"> &raquo; </a>
-                {% else %}
-                <span class="pagination-link disabled"> &raquo; </span>
-                {% endif %}
+    </div>
+
+    <div class="row">
+        {% if projects %}
+        {% for project in projects %}
+        <div class="col-12 col-md-6 col-lg-3 mb-4">
+            <div class="card h-100">
+                <img src="{{ project.image_url }}" alt="Project Image" class="card-img-top">
+                <div class="card-body">
+                    <h5 class="card-title">{{ project.title }}</h5>
+                    <p class="card-text">{{ project.body }}</p>
+                    <div class="github-and-tags mt-3">
+                        <a class="text-decoration-none" href="{{ project.github_url }}" target="_blank">
+                            <i class="fab fa-github text-dark github-icon" title="GitHub Project"></i>
+                        </a>
+                        {% for tag in project.sorted_tags %}
+                        <span class="tag">{{ tag.name }}</span>
+                        {% endfor %}
+                    </div>
+                </div>
+                <div class="card-footer text-muted">
+                    <p>{{ project.date|date:"b j, Y" }}</p>
+                </div>
             </div>
-            <div>Prev Page &nbsp; Next Page</div>
-            <div>Page {{ projects.number }} of {{ projects.paginator.num_pages }}</div>
+        </div>
+        {% endfor %}
+        {% else %}
+        <div class="col-12">
+            <p class="text-center mt-4 text-muted">No projects found.</p>
+        </div>
+        {% endif %}
+    </div>
+
+    <div class="row">
+        <div class="col-12 d-flex justify-content-center">
+            <nav>
+                <ul class="pagination justify-content-center">
+                    {% if projects.has_previous %}
+                    <li class="page-item">
+                        <a class="page-link" href="?page={{ projects.previous_page_number }}" aria-label="Previous">
+                            <span aria-hidden="true">&laquo;</span>
+                        </a>
+                    </li>
+                    {% else %}
+                    <li class="page-item disabled">
+                        <span class="page-link">&laquo;</span>
+                    </li>
+                    {% endif %}
+
+                    <li class="page-item disabled">
+                        <span class="page-link">Page {{ projects.number }} of {{ projects.paginator.num_pages }}</span>
+                    </li>
+
+                    {% if projects.has_next %}
+                    <li class="page-item">
+                        <a class="page-link" href="?page={{ projects.next_page_number }}" aria-label="Next">
+                            <span aria-hidden="true">&raquo;</span>
+                        </a>
+                    </li>
+                    {% else %}
+                    <li class="page-item disabled">
+                        <span class="page-link">&raquo;</span>
+                    </li>
+                    {% endif %}
+                </ul>
+            </nav>
         </div>
     </div>
 </div>
+
 <script src="{% static 'js/selectedtags.js' %}"></script>
 <script src="{% static 'js/filter.js' %}"></script>
 {% endblock %}

@@ -1,39 +1,34 @@
 {% extends "app/base.html" %}
 
 {% block content %}
-<style>
-    @media only screen and (min-width: 1600px) {
-        body {
-            overflow: hidden;
-        }
-    }
-</style>
-<div class="content">
-    <div class="aboutmecontainer">
-        <div class="about">
-            <h2 class="aboutmeheaders">About Me</h2>
-            <p class="aboutmetext">Hi, I'm Sam! I am a software developer currently studying computer science at the University of Connecticut.
+<div class="container mt-3">
+    <div class="row">
+        <div class="col-12 mb-4">
+            <h2 class="text-center mt-4">About Me</h2>
+            <p class="lead text-justify">
+                Hi, I'm Sam! I am a software developer currently studying computer science at the University of Connecticut.
                 I started learning python 5 years ago, and since then I have created many interesting things, including this website!
-                If you want to view some of my work check out the projects page!
-            </p><br>
-            <p class="aboutmetext">Outside of programming, I enjoy playing and listening to music, going to the gym, and learning languages!
+                If you want to view some of my work check out the <a href="/projects" class="text-primary">projects page</a>!
+            </p>
+            <p class="lead text-justify">
+                Outside of programming, I enjoy playing and listening to music, going to the gym, and learning languages!
             </p>
         </div>
-        <div class="quick-links top">
-            <h2 class="aboutmeheaders">Skills</h2>
-            <ul>
-                <li>- Python</li>
-                <li>- Flask</li>
-                <li>- HTML</li>
-                <li>- CSS</li>
-                <li>- JavaScript</li>
+        <div class="col-md-6 mb-4">
+            <h2 class="text-center">Skills</h2>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">Python</li>
+                <li class="list-group-item">Flask</li>
+                <li class="list-group-item">HTML</li>
+                <li class="list-group-item">CSS</li>
+                <li class="list-group-item">JavaScript</li>
             </ul>
         </div>
-        <div class="quick-links bottom">
-            <h2 class="aboutmeheaders">Links</h2>
-            <ul>
-                <li><a href="https://github.com/SamChichester" target="_blank" title="GitHub">GitHub</a></li>
-                <li><a href="https://www.linkedin.com/in/sam-chichester-48367123b/" target="_blank" title="LinkedIn">LinkedIn</a></li>
+        <div class="col-md-6 mb-4">
+            <h2 class="text-center">Links</h2>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item"><a href="https://github.com/SamChichester" target="_blank" title="GitHub">GitHub</a></li>
+                <li class="list-group-item"><a href="https://www.linkedin.com/in/sam-chichester-48367123b/" target="_blank" title="LinkedIn">LinkedIn</a></li>
             </ul>
         </div>
     </div>
