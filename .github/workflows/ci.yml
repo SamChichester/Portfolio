@@ -10,7 +10,7 @@ on:
 
 jobs:
   test:
-    runs-ons: ubuntu-latest
+    runs-on: ubuntu-latest
 
     env:
       DATABASE_URL: ${{ secrets.DATABASE_URL }}
