@@ -32,6 +32,10 @@ jobs:
         run: |
           echo $HEROKU_API_KEY | heroku auth:token
 
+      - name: Add Heroku Git Remote
+        run: |
+          git remote add heroku https://git.heroku.com/django-portfolio-app.git
+
       - name: Deploy to Heroku
         env:
           HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
