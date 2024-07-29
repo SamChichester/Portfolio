@@ -22,19 +22,12 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
-      - name: Debug Git Info
+      - name: Set up Heroku Git Remote
         run: |
-          git --version
-          git remote -v
-          git branch -a
-
-      - name: Install Heroku CLI
-        run: |
-          curl https://cli-assets.heroku.com/install.sh | sh
+          git remote add heroku https://git.heroku.com/django-portfolio-app.git
 
       - name: Deploy to Heroku
         env:
           HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
         run: |
-          heroku git:remote -a django-portfolio-app
           git push heroku main
