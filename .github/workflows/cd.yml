@@ -40,4 +40,6 @@ jobs:
         env:
           HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
         run: |
+          git config --global credential.helper 'store'
+          echo "https://$HEROKU_API_KEY:@git.heroku.com/django-portfolio-app.git" > ~/.git-credentials
           git push heroku main
