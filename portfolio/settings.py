@@ -55,10 +55,11 @@ MIDDLEWARE = [
 ]
 
 CSP_DEFAULT_SRC = ("'self'",)
-CSP_SCRIPT_SRC = ("'self'", "https://cdnjs.cloudflare.com", "https://cdn.jsdelivr.net")
+CSP_SCRIPT_SRC = ("'self'", "https://cdnjs.cloudflare.com", "https://cdn.jsdelivr.net", "https://www.youtube.com", "https://s.ytimg.com")
 CSP_STYLE_SRC = ("'self'", "https://fonts.googleapis.com", "https://cdnjs.cloudflare.com", "https://cdn.jsdelivr.net")
 CSP_IMG_SRC = ("'self'", "data:", "https://res.cloudinary.com/dvsvlcbec/")
 CSP_FONT_SRC = ("'self'", "https://fonts.googleapis.com", "https://fonts.gstatic.com", "https://cdnjs.cloudflare.com")
+CSP_FRAME_SRC = ("'self'", "https://www.youtube.com", "https://www.youtube-nocookie.com")
 
 if os.environ.get('SECURE_MODE') != 'True':
     SECURE_BROWSER_XSS_FILTER = False

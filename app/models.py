@@ -11,7 +11,8 @@ class Tag(models.Model):
 class Project(models.Model):
     title = models.CharField(max_length=200)
     body = models.TextField()
-    image_url = models.URLField()
+    image_url = models.URLField(null=True, blank=True)
+    video_url = models.URLField(null=True, blank=True)
     github_url = models.URLField()
     date = models.DateTimeField(auto_now_add=True)
     tags = models.ManyToManyField(Tag)

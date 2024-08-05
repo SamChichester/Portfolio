@@ -21,7 +21,13 @@
         {% for project in projects %}
         <div class="col-12 col-md-6 col-lg-6 mb-4">
             <div class="card h-100">
-                <img src="{{ project.image_url }}" alt="Project Image" class="card-img-top">
+                {% if project.video_url %}
+                    <div class="embed-responsive embed-responsive-16by9">
+                        <iframe class="embed-responsive-item p-3" src="{{ project.video_url }}" allowfullscreen></iframe>
+                    </div>
+                {% else %}
+                    <img src="{{ project.image_url }}" alt="Project Image" class="card-img-top p-3">
+                {% endif %}
                 <div class="card-body">
                     <h5 class="card-title">{{ project.title }}</h5>
                     <p class="card-text">{{ project.body }}</p>
