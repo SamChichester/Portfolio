@@ -1,4 +1,5 @@
 from django.db import models
+from django.utils import timezone
 
 
 class Tag(models.Model):
@@ -14,7 +15,7 @@ class Project(models.Model):
     image_url = models.URLField(null=True, blank=True)
     video_url = models.URLField(null=True, blank=True)
     github_url = models.URLField()
-    date = models.DateTimeField(auto_now_add=True)
+    date = models.DateTimeField(default=timezone.now)
     tags = models.ManyToManyField(Tag)
 
     def __str__(self):
