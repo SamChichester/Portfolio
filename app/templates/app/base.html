@@ -51,9 +51,21 @@
                 </div>
             </header>
             <ul class="nav flex-column">
-                <li class="nav-item"><a class="nav-link nav-icon" href="{% url 'index' %}"><i class="fas fa-home"></i> Home</a></li>
-                <li class="nav-item"><a class="nav-link nav-icon" href="{% url 'projects' %}"><i class="fas fa-list"></i> Projects</a></li>
-                <li class="nav-item"><a class="nav-link nav-icon" href="{% url 'about_me' %}"><i class="fas fa-user"></i> About Me</a></li>
+                <li class="nav-item">
+                    <a class="nav-link nav-icon {% if request.resolver_match.url_name == 'index' %}disabled{% endif %}" href="{% url 'index' %}">
+                        <i class="fas fa-home"></i> Home
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link nav-icon {% if request.resolver_match.url_name == 'projects' %}disabled{% endif %}" href="{% url 'projects' %}">
+                        <i class="fas fa-list"></i> Projects
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link nav-icon {% if request.resolver_match.url_name == 'about_me' %}disabled{% endif %}" href="{% url 'about_me' %}">
+                        <i class="fas fa-user"></i> About Me
+                    </a>
+                </li>
             </ul>
             <footer class="navbar-footer text-white">
                 <p>&copy; 2024 Sam Chichester.</p>

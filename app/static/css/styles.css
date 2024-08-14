@@ -179,3 +179,9 @@
 .description-text {
     font-size: 20px;
 }
+
+.nav-link.disabled {
+    pointer-events: none;
+    color: #5a698e;
+    cursor: default;
+}
