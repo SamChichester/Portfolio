@@ -30,10 +30,22 @@
                         <a href="https://www.linkedin.com/in/sam-chichester-48367123b/" target="_blank" title="LinkedIn" class="nav-icon"><i class="fab fa-linkedin"></i></a>
                     </div>
                 </header>
-                <ul class="nav flex-column ms-5">
-                    <li class="nav-item"><a class="nav-link nav-icon" href="{% url 'index' %}"><i class="fas fa-home"></i> Home</a></li>
-                    <li class="nav-item"><a class="nav-link nav-icon" href="{% url 'projects' %}"><i class="fas fa-list"></i> Projects</a></li>
-                    <li class="nav-item"><a class="nav-link nav-icon" href="{% url 'about_me' %}"><i class="fas fa-user"></i> About Me</a></li>
+                <ul class="nav flex-column">
+                    <li class="nav-item">
+                        <a class="nav-link nav-icon {% if request.resolver_match.url_name == 'index' %}disabled{% endif %}" href="{% url 'index' %}">
+                            <i class="fas fa-home"></i> Home
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link nav-icon {% if request.resolver_match.url_name == 'projects' %}disabled{% endif %}" href="{% url 'projects' %}">
+                            <i class="fas fa-list"></i> Projects
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link nav-icon {% if request.resolver_match.url_name == 'about_me' %}disabled{% endif %}" href="{% url 'about_me' %}">
+                            <i class="fas fa-user"></i> About Me
+                        </a>
+                    </li>
                 </ul>
             </div>
             <footer class="navbar-footer text-center">
