@@ -1,9 +1,9 @@
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 from django.shortcuts import render
-from django.http import Http404
 from django.utils.html import escape
 import re
 from .models import Project, Tag
+from datetime import datetime
 
 
 def index(request):
@@ -11,7 +11,16 @@ def index(request):
 
 
 def about_me(request):
-    return render(request, 'app/about_me.html', {'title': 'About Me'})
+    start_date = datetime(2018, 8, 1)
+    current_date = datetime.now()
+    years_since = current_date.year - start_date.year - ((current_date.month, current_date.day)
+                                                         < (start_date.month, start_date.day))
+
+    context = {
+        'title': 'About Me',
+        'years_since': years_since,
+    }
+    return render(request, 'app/about_me.html', context)
 
 
 def is_valid_tag(tag):
@@ -50,6 +59,7 @@ def projects(request):
         page_obj = paginator.get_page(paginator.num_pages)
 
     context = {
+        'title': 'Projects',
         'projects': page_obj,
         'tags': all_tags,
         'selected_tags': selected_tags,
