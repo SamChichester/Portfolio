@@ -1,8 +1,8 @@
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.utils.html import escape
 import re
-from .models import Project, Tag
+from .models import Project, Tag, Article
 from datetime import datetime
 
 
@@ -66,6 +66,32 @@ def projects(request):
     }
 
     return render(request, 'app/projects.html', context)
+
+
+def all_articles(request):
+    articles = Article.objects.all().order_by('-date')
+    paginator = Paginator(articles, 10)
+
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
+
+    context = {
+        'title': 'Articles',
+        'page_obj': page_obj
+    }
+
+    return render(request, 'app/all_articles.html', context)
+
+
+def article(request, slug):
+    article = get_object_or_404(Article, slug=slug)
+
+    context = {
+        'title': 'Article',
+        'article': article
+    }
+
+    return render(request, 'app/article.html', context)
 
 
 def page_not_found(request, exception):

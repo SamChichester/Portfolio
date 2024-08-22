@@ -46,6 +46,11 @@
                             <i class="fas fa-user"></i> About Me
                         </a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link nav-icon {% if request.resolver_match.url_name == 'articles' %}disabled{% endif %}" href="{% url 'articles' %}">
+                            <i class="fas fa-pen"></i> Blog
+                        </a>
+                    </li>
                 </ul>
             </div>
             <footer class="navbar-footer text-center">
@@ -76,6 +81,11 @@
                 <li class="nav-item">
                     <a class="nav-link nav-icon {% if request.resolver_match.url_name == 'about_me' %}disabled{% endif %}" href="{% url 'about_me' %}">
                         <i class="fas fa-user"></i> About Me
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link nav-icon {% if request.resolver_match.url_name == 'articles' %}disabled{% endif %}" href="{% url 'articles' %}">
+                        <i class="fas fa-pen"></i> Blog
                     </a>
                 </li>
             </ul>

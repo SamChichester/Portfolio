@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'app',
+    'django_quill',
 ]
 
 MIDDLEWARE = [
@@ -54,9 +55,37 @@ MIDDLEWARE = [
     'csp.middleware.CSPMiddleware',
 ]
 
+DJANGO_QUILL_CONFIGS = {
+    'default': {
+        'theme': 'snow',  # Or 'bubble'
+        'modules': {
+            'toolbar': [
+                [{'header': [1, 2, 3, 4, 5, 6, False]}],
+                ['bold', 'italic', 'underline'],
+                ['link', 'blockquote', 'code-block', 'image'],
+                [{'list': 'ordered'}, {'list': 'bullet'}],
+            ],
+        },
+    }
+}
+
 CSP_DEFAULT_SRC = ("'self'",)
-CSP_SCRIPT_SRC = ("'self'", "https://cdnjs.cloudflare.com", "https://cdn.jsdelivr.net", "https://www.youtube.com", "https://s.ytimg.com")
-CSP_STYLE_SRC = ("'self'", "https://fonts.googleapis.com", "https://cdnjs.cloudflare.com", "https://cdn.jsdelivr.net")
+CSP_SCRIPT_SRC = (
+    "'self'",
+    "'unsafe-inline'",
+    "https://cdnjs.cloudflare.com",
+    "https://cdn.jsdelivr.net",
+    "https://www.youtube.com",
+    "https://s.ytimg.com",
+    "https://cdn.quilljs.com",
+)
+CSP_STYLE_SRC = ("'self'",
+                 "'unsafe-inline'",
+                 "https://fonts.googleapis.com",
+                 "https://cdnjs.cloudflare.com",
+                 "https://cdn.jsdelivr.net",
+                 "https://cdn.quilljs.com",
+                 )
 CSP_IMG_SRC = ("'self'", "data:", "https://res.cloudinary.com/dvsvlcbec/")
 CSP_FONT_SRC = ("'self'", "https://fonts.googleapis.com", "https://fonts.gstatic.com", "https://cdnjs.cloudflare.com")
 CSP_FRAME_SRC = ("'self'", "https://www.youtube.com", "https://www.youtube-nocookie.com")

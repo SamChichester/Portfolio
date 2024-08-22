@@ -23,6 +23,8 @@ urlpatterns = [
     path('', views.index, name='index'),
     path('about_me/', views.about_me, name='about_me'),
     path('projects/', views.projects, name='projects'),
+    path('articles/', views.all_articles, name='articles'),
+    path('articles/<slug:slug>/', views.article, name='article'),
 ]
 
 handler404 = 'app.views.page_not_found'
